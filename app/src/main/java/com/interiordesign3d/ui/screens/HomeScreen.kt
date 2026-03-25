@@ -320,16 +320,16 @@ private fun AiStyleCard(style: StyleInspo, onClick: () -> Unit) {
     }
 }
 
-// ─── Room Card ────────────────────────────────────────────────────────────────
+// ─── DesignRoom Card ────────────────────────────────────────────────────────────────
 
 val sampleRooms = listOf(
-    Room("r1","Living Room",     380f, 520f, 260f, "#F5F0EB"),
-    Room("r2","Master Bedroom",  320f, 430f, 260f, "#EBF3F5"),
-    Room("r3","Home Office",     280f, 350f, 260f, "#F5EBF0"),
+    DesignRoom("r1","Living DesignRoom",     380f, 520f, 260f, "#F5F0EB"),
+    DesignRoom("r2","Master Bedroom",  320f, 430f, 260f, "#EBF3F5"),
+    DesignRoom("r3","Home Office",     280f, 350f, 260f, "#F5EBF0"),
 )
 
 @Composable
-private fun RoomCard(room: Room, onClick: () -> Unit) {
+private fun RoomCard(room: DesignRoom, onClick: () -> Unit) {
     Surface(
         onClick = onClick,
         modifier = Modifier.width(160.dp).height(190.dp),
@@ -387,10 +387,10 @@ private fun NewRoomCard(onClick: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Icon(Icons.Filled.AddCircleOutline, contentDescription = "New Room",
+            Icon(Icons.Filled.AddCircleOutline, contentDescription = "New DesignRoom",
                 tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(40.dp))
             Spacer(Modifier.height(8.dp))
-            Text("New Room", style = MaterialTheme.typography.titleSmall,
+            Text("New DesignRoom", style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.SemiBold)
         }
     }

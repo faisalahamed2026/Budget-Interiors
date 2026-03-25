@@ -21,19 +21,19 @@ class Converters {
 @Dao
 interface RoomDao {
     @Query("SELECT * FROM rooms ORDER BY updatedAt DESC")
-    fun getAllRooms(): Flow<List<Room>>
+    fun getAllRooms(): Flow<List<DesignRoom>>
 
     @Query("SELECT * FROM rooms WHERE id = :roomId")
-    suspend fun getRoomById(roomId: String): Room?
+    suspend fun getRoomById(roomId: String): DesignRoom?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRoom(room: Room)
+    suspend fun insertRoom(room: DesignRoom)
 
     @Update
-    suspend fun updateRoom(room: Room)
+    suspend fun updateRoom(room: DesignRoom)
 
     @Delete
-    suspend fun deleteRoom(room: Room)
+    suspend fun deleteRoom(room: DesignRoom)
 }
 
 @Dao
@@ -75,7 +75,7 @@ interface DesignProjectDao {
 // ─── Database ─────────────────────────────────────────────────────────────────
 
 @Database(
-    entities = [Room::class, PlacedFurniture::class, DesignProject::class],
+    entities = [DesignRoom::class, PlacedFurniture::class, DesignProject::class],
     version = 1,
     exportSchema = false
 )

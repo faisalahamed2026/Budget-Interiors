@@ -39,12 +39,12 @@ enum class FurnitureCategory(val displayName: String, val icon: String) {
     DECOR("Décor", "🎨")
 }
 
-// ─── Room ──────────────────────────────────────────────────────────────────────
+// ─── DesignRoom ──────────────────────────────────────────────────────────────────────
 
 @Entity(tableName = "rooms")
 @Parcelize
 @Serializable
-data class Room(
+data class DesignRoom(
     @PrimaryKey val id: String,
     val name: String,
     val widthCm: Float,
@@ -133,7 +133,7 @@ enum class DesignStyle(val displayName: String) {
     MID_CENTURY("Mid-Century Modern")
 }
 
-// ─── Room Measurement ─────────────────────────────────────────────────────────
+// ─── DesignRoom Measurement ─────────────────────────────────────────────────────────
 
 data class RoomMeasurement(
     val widthCm: Float,

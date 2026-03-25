@@ -12,7 +12,7 @@ import java.util.UUID
 
 data class HomeUiState(
     val recentProjects: List<DesignProject> = emptyList(),
-    val savedRooms: List<Room> = emptyList(),
+    val savedRooms: List<DesignRoom> = emptyList(),
     val aiSuggestions: List<AiDesignSuggestion> = emptyList(),
     val isLoading: Boolean = false
 )
@@ -25,7 +25,7 @@ data class CatalogUiState(
 )
 
 data class RoomDesignerUiState(
-    val room: Room? = null,
+    val room: DesignRoom? = null,
     val placedFurniture: List<PlacedFurniture> = emptyList(),
     val selectedFurnitureId: String? = null,
     val isARMode: Boolean = false,
@@ -155,7 +155,7 @@ class RoomDesignerViewModel(
 
     fun createNewRoom(name: String, widthCm: Float, lengthCm: Float, heightCm: Float) {
         viewModelScope.launch {
-            val room = Room(
+            val room = DesignRoom(
                 id = UUID.randomUUID().toString(),
                 name = name,
                 widthCm = widthCm,

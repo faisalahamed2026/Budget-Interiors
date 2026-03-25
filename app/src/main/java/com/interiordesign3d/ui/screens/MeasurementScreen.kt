@@ -27,7 +27,7 @@ fun MeasurementScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Room Measurement") },
+                title = { Text("DesignRoom Measurement") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.Filled.ArrowBack, "Back")
@@ -71,7 +71,7 @@ private fun MeasureModeChooser(onARMode: () -> Unit, onManualMode: () -> Unit) {
             modifier = Modifier.size(72.dp), tint = MaterialTheme.colorScheme.primary)
 
         Spacer(Modifier.height(24.dp))
-        Text("Measure Your Room", style = MaterialTheme.typography.headlineMedium,
+        Text("Measure Your DesignRoom", style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
         Text("Choose how you want to measure your room dimensions",
@@ -82,7 +82,7 @@ private fun MeasureModeChooser(onARMode: () -> Unit, onManualMode: () -> Unit) {
 
         // AR Scan option
         MeasureOptionCard(
-            title = "AR Room Scan",
+            title = "AR DesignRoom Scan",
             subtitle = "Point your camera at room corners for automatic measurement",
             icon = Icons.Filled.ViewInAr,
             badge = "ACCURATE",
@@ -343,7 +343,7 @@ private fun ManualMeasurementForm(
     Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
         .padding(24.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
 
-        Text("Enter Room Dimensions",
+        Text("Enter DesignRoom Dimensions",
             style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Text("Use a tape measure for best accuracy. All measurements in centimeters.",
             style = MaterialTheme.typography.bodyMedium,

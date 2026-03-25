@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.map
 
 /**
  * In production this would connect to a remote API / Firebase.
- * For now it provides rich sample data and local Room operations.
+ * For now it provides rich sample data and local DesignRoom operations.
  */
 class FurnitureRepository {
 

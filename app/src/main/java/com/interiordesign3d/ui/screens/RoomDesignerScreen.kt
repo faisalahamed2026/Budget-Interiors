@@ -31,7 +31,7 @@ fun RoomDesignerScreen(
     onBack: () -> Unit
 ) {
     var room by remember { mutableStateOf(
-        Room("r1","Living Room", 380f, 520f, 260f, "#F5F0EB")
+        DesignRoom("r1","Living DesignRoom", 380f, 520f, 260f, "#F5F0EB")
     )}
     var placedFurniture by remember { mutableStateOf(mutableListOf<PlacedFurniture>()) }
     var selectedId by remember { mutableStateOf<String?>(null) }
@@ -39,11 +39,11 @@ fun RoomDesignerScreen(
     var showRoomSetup by remember { mutableStateOf(roomId.length > 10) } // new room
     var viewMode by remember { mutableStateOf(ViewMode.PERSPECTIVE) }
 
-    // Room setup dialog for new rooms
+    // DesignRoom setup dialog for new rooms
     if (showRoomSetup) {
         RoomSetupDialog(
             onConfirm = { name, w, l, h ->
-                room = Room(roomId, name, w, l, h)
+                room = DesignRoom(roomId, name, w, l, h)
                 showRoomSetup = false
             },
             onDismiss = { showRoomSetup = false; onBack() }
@@ -198,11 +198,11 @@ private fun DesignerTopBar(
     )
 }
 
-// ─── 3D Room Viewport (Canvas-based renderer) ──────────────────────────────────
+// ─── 3D DesignRoom Viewport (Canvas-based renderer) ──────────────────────────────────
 
 @Composable
 fun RoomViewport3D(
-    room: Room,
+    room: DesignRoom,
     placedFurniture: List<PlacedFurniture>,
     selectedId: String?,
     viewMode: ViewMode,
@@ -259,7 +259,7 @@ fun RoomViewport3D(
             }
         }
 
-        // Room dimensions overlay
+        // DesignRoom dimensions overlay
         Surface(
             modifier = Modifier.align(Alignment.TopEnd).padding(12.dp),
             shape = RoundedCornerShape(8.dp),
@@ -280,7 +280,7 @@ fun RoomViewport3D(
 // ─── Canvas 3D Drawing ────────────────────────────────────────────────────────
 
 fun DrawScope.drawRoom3D(
-    room: Room,
+    room: DesignRoom,
     furniture: List<PlacedFurniture>,
     selectedId: String?,
     azimuth: Float,
@@ -494,7 +494,7 @@ private fun FurnitureControlPanel(
     }
 }
 
-// ─── Room Setup Dialog ────────────────────────────────────────────────────────
+// ─── DesignRoom Setup Dialog ────────────────────────────────────────────────────────
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -502,7 +502,7 @@ private fun RoomSetupDialog(
     onConfirm: (String, Float, Float, Float) -> Unit,
     onDismiss: () -> Unit
 ) {
-    var name by remember { mutableStateOf("Living Room") }
+    var name by remember { mutableStateOf("Living DesignRoom") }
     var width by remember { mutableStateOf("380") }
     var length by remember { mutableStateOf("520") }
     var height by remember { mutableStateOf("260") }
@@ -510,11 +510,11 @@ private fun RoomSetupDialog(
     AlertDialog(
         onDismissRequest = onDismiss,
         icon = { Icon(Icons.Filled.Weekend, contentDescription = null) },
-        title = { Text("Set Up Your Room") },
+        title = { Text("Set Up Your DesignRoom") },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedTextField(value = name, onValueChange = { name = it },
-                    label = { Text("Room name") }, modifier = Modifier.fillMaxWidth())
+                    label = { Text("DesignRoom name") }, modifier = Modifier.fillMaxWidth())
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     OutlinedTextField(value = width, onValueChange = { width = it },
                         label = { Text("Width (cm)") }, modifier = Modifier.weight(1f))
@@ -528,12 +528,12 @@ private fun RoomSetupDialog(
         confirmButton = {
             Button(onClick = {
                 onConfirm(
-                    name.ifBlank { "Room" },
+                    name.ifBlank { "DesignRoom" },
                     width.toFloatOrNull() ?: 380f,
                     length.toFloatOrNull() ?: 520f,
                     height.toFloatOrNull() ?: 260f
                 )
-            }) { Text("Create Room") }
+            }) { Text("Create DesignRoom") }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) { Text("Cancel") }
