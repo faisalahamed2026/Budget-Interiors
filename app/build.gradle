@@ -32,7 +32,14 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
-    kotlinOptions { jvmTarget = '17' }
+    kotlinOptions {
+        jvmTarget = '17'
+        freeCompilerArgs += [
+            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+            "-opt-in=androidx.compose.foundation.ExperimentalFoundationApi",
+            "-opt-in=androidx.compose.animation.ExperimentalAnimationApi"
+        ]
+    }
 
     buildFeatures {
         compose true
@@ -62,6 +69,7 @@ dependencies {
     implementation 'androidx.compose.material:material-icons-extended'
     implementation 'androidx.compose.animation:animation'
     implementation 'androidx.compose.foundation:foundation'
+    implementation 'androidx.compose.foundation:foundation-layout'
 
     // Navigation
     implementation 'androidx.navigation:navigation-compose:2.7.6'
