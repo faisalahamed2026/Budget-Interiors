@@ -27,7 +27,7 @@ fun MeasurementScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("DesignRoom Measurement") },
+                title = { Text("Room Measurement") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.Filled.ArrowBack, "Back")
@@ -71,7 +71,7 @@ private fun MeasureModeChooser(onARMode: () -> Unit, onManualMode: () -> Unit) {
             modifier = Modifier.size(72.dp), tint = MaterialTheme.colorScheme.primary)
 
         Spacer(Modifier.height(24.dp))
-        Text("Measure Your DesignRoom", style = MaterialTheme.typography.headlineMedium,
+        Text("Measure Your Room", style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
         Text("Choose how you want to measure your room dimensions",
@@ -82,7 +82,7 @@ private fun MeasureModeChooser(onARMode: () -> Unit, onManualMode: () -> Unit) {
 
         // AR Scan option
         MeasureOptionCard(
-            title = "AR DesignRoom Scan",
+            title = "AR Room Scan",
             subtitle = "Point your camera at room corners for automatic measurement",
             icon = Icons.Filled.ViewInAr,
             badge = "ACCURATE",
@@ -244,7 +244,7 @@ private fun ARMeasurementView(
                     Text("Walk slowly around the room perimeter",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    LinearProgressIndicator(progress = { progressAnim },
+                    LinearProgressIndicator(progress = progressAnim,
                         modifier = Modifier.fillMaxWidth())
                     Text("${(progressAnim * 100).toInt()}% scanned",
                         style = MaterialTheme.typography.labelSmall,
@@ -343,7 +343,7 @@ private fun ManualMeasurementForm(
     Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())
         .padding(24.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
 
-        Text("Enter DesignRoom Dimensions",
+        Text("Enter Room Dimensions",
             style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Text("Use a tape measure for best accuracy. All measurements in centimeters.",
             style = MaterialTheme.typography.bodyMedium,

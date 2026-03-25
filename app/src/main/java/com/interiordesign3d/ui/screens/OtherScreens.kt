@@ -1,3 +1,5 @@
+@file:OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+
 package com.interiordesign3d.ui.screens
 
 import androidx.compose.foundation.*
@@ -569,7 +571,7 @@ fun FurnitureDetailScreen(furnitureId: String, onBack: () -> Unit) {
                 Button(onClick = {}, modifier = Modifier.weight(1f)) {
                     Icon(Icons.Filled.AddCircle, null, modifier = Modifier.size(18.dp))
                     Spacer(Modifier.width(6.dp))
-                    Text("Add to DesignRoom")
+                    Text("Add to Room")
                 }
             }
 

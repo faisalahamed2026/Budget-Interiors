@@ -207,7 +207,4 @@ fun InteriorDesignTheme(
     )
 }
 
-// Extension for isSystemInDarkTheme in non-composable
-@Composable
-fun androidx.compose.foundation.isSystemInDarkTheme(): Boolean =
-    androidx.compose.foundation.isSystemInDarkTheme()
+
